@@ -72,9 +72,11 @@ public class Game {
         return false;
     }
 
+    //NEWLY MODIFIED LIST PLANTS AS FOR LOOP
     public void listPlants() {
-        for (Plant plant : plants) {
-            System.out.println(plant.getName());
+        for (int i = 0; i < plants.size(); i++) {
+            Plant plant = plants.get(i);
+            System.out.println("Slot #" + i + ": " + plant.getName());
         }
     }
 
@@ -102,4 +104,15 @@ public class Game {
     public void addPlant(Plant plant) {
         plants.add(plant);
     }
+
+    //NEW ADDITION GETPLANTS METHOD
+    public ArrayList<Plant> getPlants() {
+        return plants;
+    }
+
+    //NEW ADDITION RETRIEVE BOUGHT ITEMS
+    public Map<BuyableItem, Integer> getBoughtItems() {
+        return boughtItems;
+    }
+
 }

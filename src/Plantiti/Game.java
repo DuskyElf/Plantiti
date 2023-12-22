@@ -72,7 +72,6 @@ public class Game {
         return false;
     }
 
-    //NEWLY MODIFIED LIST PLANTS AS FOR LOOP
     public void listPlants() {
         for (int i = 0; i < plants.size(); i++) {
             Plant plant = plants.get(i);
@@ -105,12 +104,10 @@ public class Game {
         plants.add(plant);
     }
 
-    //NEW ADDITION GETPLANTS METHOD
     public ArrayList<Plant> getPlants() {
         return plants;
     }
 
-    //NEW ADDITION RETRIEVE BOUGHT ITEMS
     public Map<BuyableItem, Integer> getBoughtItems() {
         return boughtItems;
     }

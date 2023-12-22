@@ -3,7 +3,7 @@ package Plantiti.Items;
 import Plantiti.Game;
 import Plantiti.Plants.Plant;
 
-public class Antidote extends Item {
+public class Antidote extends BuyableItem {
     public String getName() {
         return "Antidote";
     }

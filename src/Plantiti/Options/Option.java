@@ -1,31 +1,30 @@
 package Plantiti.Options;
 
 import Plantiti.Game;
+import java.util.Map;
+import static java.util.Map.entry;
 
 public abstract class Option {
-    public static Option getOption(String option) {
-        switch (option.toLowerCase()) {
-            case "selectplant":
-                return new SelectPlant();
-            case "shop":
-                return new Shop();
-            case "inventory":
-                return new Inventory();
-            case "nextday":
-                return new NextDay();
-            case "useitem":
-                return new UseItem();
-            default:
-                return new InvalidOption();
+    private static Map<String, Option> options = Map.ofEntries(
+        entry("selectplant", new SelectPlant()),
+        entry("shop", new Shop()),
+        entry("inventory", new Inventory()),
+        entry("nextday", new NextDay()),
+        entry("useitem", new UseItem())
+    );
+
+    public static Option getOption(String value) {
+        Option option = options.get(value.toLowerCase());
+        if (option == null) {
+            return new InvalidOption();
         }
+        return option;
     }
 
     public static void printOptions() {
-        System.out.println("- SelectPlant");
-        System.out.println("- Shop");
-        System.out.println("- Inventory");
-        System.out.println("- NextDay");
-        System.out.println("- UseItem");
+        for (String option : options.keySet()) {
+            System.out.println("- " + option);
+        }
     }
 
     public abstract void runOption(Game game);

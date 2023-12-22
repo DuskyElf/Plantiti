@@ -1,6 +1,13 @@
 package Plantiti.Plants;
 
+import java.util.Map;
+import static java.util.Map.entry;
+
 public abstract class Plant {
+    private static Map<String, Plant> plants = Map.ofEntries(
+        entry("cactus", new Cactus())
+    );
+
     private int healthLevel;
     private int waterLevel;
     private int sunlighLevel;
@@ -47,15 +54,12 @@ public abstract class Plant {
 
     // Safety: Could return null
     public static Plant getPlant(String plant) {
-        switch (plant.toLowerCase()) {
-            case "cactus":
-                return new Cactus();
-            default:
-                return null;
-        }
+        return plants.get(plant.toLowerCase());
     }
 
     public static void printPlants() {
-        System.out.println("- Cactus");
+        for (String plant : plants.keySet()) {
+            System.out.println("- " + plant);
+        }
     }
 }

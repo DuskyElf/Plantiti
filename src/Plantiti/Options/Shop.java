@@ -1,22 +1,22 @@
 package Plantiti.Options;
 
 import Plantiti.Game;
-import Plantiti.Items.Item;
 import Plantiti.Plants.Plant;
+import Plantiti.Items.BuyableItem;
 import java.util.Scanner;
 
 public class Shop extends Option {
     public void runOption(Game game) {
         System.out.println("Shop: You could buy plants / items here:");
         System.out.println("Available Items are: ");
-        Item.printItems();
+        BuyableItem.printItems();
         System.out.println("Available Plants are: ");
         Plant.printPlants();
 
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
 
-        Item userItem = Item.getItem(userInput);
+        BuyableItem userItem = BuyableItem.getItem(userInput);
         if (userItem != null) {
             if (userItem.cost() > game.getMoney()) {
                 System.out.println("Not enought money; you poor guy, ;P"); // XD
@@ -38,6 +38,6 @@ public class Shop extends Option {
             return;
         }
 
-        System.out.println("No item / plant named " + userInput + ". Try again");
+        System.out.println("No item / plant named '" + userInput + "'. Try again");
     }
 }

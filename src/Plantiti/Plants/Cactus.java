@@ -8,4 +8,5 @@ public class Cactus extends Plant {
     public int cost() {
         return 100;
     }
+
 }

@@ -15,6 +15,17 @@ public abstract class Plant {
 
     public abstract int cost();
     public abstract String getName();
+    
+    //NEW ADDITION
+    public int getWaterLevel() {
+        return waterLevel;
+    }
+    public int getSunlightLevel() {
+        return sunlighLevel;
+    }
+    public int getHealthLevel() {
+        return healthLevel;
+    }
 
     // returns true if the plant dies
     public boolean damagePlant(int damage) {
@@ -24,6 +35,7 @@ public abstract class Plant {
         }
         return false;
     }
+
 
     public boolean getIsBugPresent() {
         return isBugPresent;

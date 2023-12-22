@@ -9,14 +9,14 @@ public class Game {
     private int money;
     private ArrayList<Item> items;
     private ArrayList<Plant> plants;
-    private ArrayList<Integer> selectedPlants;
+    private Plant selectedPlant;
 
     public Game(int initialMoney) {
         this.isGameOver = false;
         this.money = initialMoney;
         this.items = new ArrayList<>();
         this.plants = new ArrayList<>();
-        this.selectedPlants = new ArrayList<>();
+        this.selectedPlant = null;
     }
 
     public void gameOver(Plant plant) {
@@ -26,9 +26,12 @@ public class Game {
 
     public boolean selectPlant(int index) {
         if (index < 0 || index >= plants.size()) return false;
-
-        selectedPlants.add(index);
+        selectedPlant = plants.get(index);
         return true;
+    }
+
+    public Plant retrieveSelectedPlant() {
+        return selectedPlant;
     }
 
     public Plant getPlant(int index) {
